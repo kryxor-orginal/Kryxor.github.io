@@ -1,1 +1,324 @@
-# Kryxor.github.io
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRYXOR - We Create Worlds</title>
+    <style>
+        /* --- BAZOWY I SZYBKI RESET CSS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background-color: #020205;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- NAWIGACJA --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(2, 2, 5, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #00d2ff, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: #8a92b2;
+            font-weight: 500;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #ffffff;
+            border-bottom: 2px solid #00d2ff;
+            padding-bottom: 5px;
+        }
+
+        /* --- SEKCJA GŁÓWNA (HERO) --- */
+        .hero {
+            padding: 150px 20px 80px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(157, 78, 221, 0.1) 0%, transparent 60%);
+        }
+        .hero-title {
+            font-size: 70px;
+            letter-spacing: 10px;
+            margin-bottom: 5px;
+        }
+        .hero-tag {
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #9d4edd;
+            margin-bottom: 30px;
+        }
+        .hero-slogan {
+            font-size: 22px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+        .hero-desc {
+            font-size: 15px;
+            color: #8a92b2;
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-blue {
+            background: #0072ff;
+            color: white;
+        }
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        /* --- SEKCJA NASZE PRODUKCJE --- */
+        .separator {
+            text-align: center;
+            margin: 40px 5%;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            line-height: 0.1em;
+        }
+        .separator span {
+            background: #020205;
+            padding: 0 15px;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8a92b2;
+        }
+        .productions {
+            padding: 0 5% 60px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #080a16;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+        }
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background: #151932;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-size: 14px;
+        }
+        .card-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .card-desc {
+            font-size: 13px;
+            color: #8a92b2;
+            margin-bottom: 15px;
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #8a92b2;
+        }
+
+        /* --- SEKCJA UNIWERSUM --- */
+        .universe {
+            margin: 20px 5% 60px;
+            background: #080a16;
+            padding: 40px;
+            border-radius: 8px;
+            border-top: 2px solid #00d2ff;
+        }
+        .universe-title {
+            font-size: 24px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .universe-desc {
+            font-size: 14px;
+            color: #8a92b2;
+            max-width: 700px;
+            margin-bottom: 25px;
+        }
+
+        /* --- STOPKA --- */
+        .footer {
+            background: #010103;
+            padding: 40px 5% 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 12px;
+            color: #4a4f66;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+        .footer-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* --- DOSTOSOWANIE DO TELEFONÓW --- */
+        @media (max-width: 768px) {
+            .header { flex-direction: column; gap: 10px; position: static; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .hero-title { font-size: 40px; }
+            .footer-top { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAWIGACJA GŁÓWNA -->
+    <header class="header">
+        <div class="logo">KRYXOR</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Films</a></li>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Trailers</a></li>
+                <li><a href="#">Commercials</a></li>
+                <li><a href="#">Our Worlds</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <div style="font-size: 14px; color: #8a92b2;">EN ▾</div>
+    </header>
+
+    <!-- SEKCJA GŁÓWNA HERO -->
+    <section class="hero">
+        <h1 class="hero-title">KRYXOR</h1>
+        <div class="hero-tag">Original</div>
+        <h2 class="hero-slogan">WE CREATE WORLDS.</h2>
+        <p class="hero-desc">A digital film studio crafting original stories, immersive universes and unforgettable experiences.</p>
+        <div class="hero-btns">
+            <button class="btn btn-blue">Explore Our Worlds</button>
+            <button class="btn btn-outline">Watch Showreel</button>
+        </div>
+    </section>
+
+    <!-- LINIA PODZIAŁU -->
+    <div class="separator">
+        <span>Our Productions</span>
+    </div>
+
+    <!-- SEKCJA PRODUKCJI (KARTY) -->
+    <section class="productions">
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-img">[ Podgląd Wideo ]</div>
+                <h3 class="card-title">Official Trailer</h3>
+                <p class="card-desc">Dive into our universe.</p>
+                <div class="card-footer">
+                    <span style="color: #ff0000; font-weight: bold;">YouTube</span>
+                    <span>➔</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">[ Podgląd Wideo ]</div>
+                <h3 class="card-title">Digital Commercial</h3>
+                <p class="card-desc">Innovation in motion.</p>
+                <div class="card-footer">
+                    <span style="color: #ffffff; font-weight: bold;">TikTok</span>
+                    <span>➔</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">[ Podgląd Wideo ]</div>
+                <h3 class="card-title">Our Series</h3>
+                <p class="card-desc">New worlds unfold.</p>
+                <div class="card-footer">
+                    <span style="color: #ff0000; font-weight: bold;">YouTube</span>
+                    <span>➔</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">[ Podgląd Wideo ]</div>
+                <h3 class="card-title">More Content</h3>
+                <p class="card-desc">Discover more.</p>
+                <div class="card-footer">
+                    <span style="color: #ff0000; font-weight: bold;">YouTube</span>
+                    <span>➔</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEKCJA UNIWERSUM KRYXOR -->
+    <section class="universe">
+        <h2 class="universe-title">Kryxor Universe</h2>
+        <p class="universe-desc">We build original worlds — from epic sci-fi landscapes to fantasy realms. Our stories are born from imagination, powered by cutting-edge technology, and brought to life for audiences around the globe.</p>
+        <button class="btn btn-outline" style="border-radius: 4px;">Learn More ➔</button>
+    </section>
+
+    <!-- STOPKA STRONY -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="logo" style="font-size: 20px;">KRYXOR</div>
+            <div style="letter-spacing: 3px;">DREAM • CREATE • INSPIRE</div>
+            <div>YT | TT | VM</div>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div>&copy; 2026 KRYXOR. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
